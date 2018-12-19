@@ -14,8 +14,12 @@ const search = async (req, res) => {
     res.status(status.OK).json(result);
   } catch (e) {
     console.error(e);
-    res.sendStatus(status.BAD_REQUEST);
+    res.status(status.BAD_REQUEST).json(prettyError(e));
   }
+};
+
+const prettyError = e => {
+  return JSON.parse(e.response);
 };
 
 module.exports = search;
