@@ -1,0 +1,97 @@
+[
+  {
+    "title": "Europe",
+    "address": {
+      "lat": 49.2359158,
+      "lon": 28.4568529
+    },
+    "time": {
+      "open": "11:00",
+      "close": "06:00"
+    },
+    "kitchen": [
+      {
+        "value": "ukrainian"
+      },
+      {
+        "value": "italian"
+      }
+    ]
+  },
+  {
+    "title": "Mafia",
+    "address": {
+      "lat": 49.2338848,
+      "lon": 28.4688713
+    },
+    "time": {
+      "open": "10:00",
+      "close": "6:00"
+    },
+    "kitchen": [
+      {
+        "value": "asian"
+      },
+      {
+        "value": "ukrainian"
+      },
+      {
+        "value": "italian"
+      }
+    ]
+  },
+  {
+    "title": "Tamero Pasta Bar",
+    "address": {
+      "lat": 49.2327626,
+      "lon": 28.4631211
+    },
+    "time": {
+      "open": "11:00",
+      "close": "00:00"
+    },
+    "kitchen": [
+      {
+        "value": "mexican"
+      },
+      {
+        "value": "italian"
+      }
+    ]
+  },
+  {
+    "title": "Vinnitsia",
+    "address": {
+      "lat": 49.226131,
+      "lon": 28.4390515
+    },
+    "time": {
+      "open": "8:00",
+      "close": "23:00"
+    },
+    "kitchen": [
+      {
+        "value": "ukrainian"
+      },
+      {
+        "value": "italian"
+      }
+    ]
+  },
+  {
+    "title": "Sushi Bar",
+    "address": {
+      "lat": 49.228303,
+      "lon": 28.4012716
+    },
+    "time": {
+      "open": "09:30",
+      "close": "23:00"
+    },
+    "kitchen": [
+      {
+        "value": "asian"
+      }
+    ]
+  }
+]

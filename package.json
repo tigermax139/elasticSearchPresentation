@@ -1,0 +1,45 @@
+{
+  "name": "elasticsearchpresentation",
+  "version": "1.0.0",
+  "description": "source code for elasticSearch presentation",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
+    "init:all": "npm run init:index && npm run init:mapping && npm run init:migrations",
+    "init:index": "node ./src/initScripts/initIndex.js",
+    "init:mapping": "node ./src/initScripts/initMapping.js",
+    "init:migrations": "node ./src/initScripts/initMigrations.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tigermax139/elasticSearchPresentation.git"
+  },
+  "keywords": [
+    "elasticSearch",
+    "node"
+  ],
+  "author": "Bohdan Yurchuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tigermax139/elasticSearchPresentation/issues"
+  },
+  "homepage": "https://github.com/tigermax139/elasticSearchPresentation#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bodybuilder": "^2.2.15",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "elasticsearch": "^15.1.1",
+    "express": "4.16.4",
+    "http-status": "^1.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3",
+    "prettier": "^1.14.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": true
+  }
+}

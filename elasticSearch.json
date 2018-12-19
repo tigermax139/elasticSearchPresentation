@@ -1,0 +1,97 @@
+[
+	{
+		"name": "Europe",
+		"address": {
+			"lat": 49.2359158,
+			"lng": 28.4568529
+		},
+		"time": {
+			"open": 11,
+			"close": 06,
+		},
+		"kitchen": [
+			{
+				"value": "ukrainian"
+			},
+			{
+				"value": "italian"
+			}
+		]
+	},
+	{
+		"name": "Mafia",
+		"address": {
+			"lat": 49.2338848,
+			"lng": 28.4688713
+		},
+		"time": {
+			"open": 10,
+			"close": 06,
+		},
+		"kitchen": [
+			{
+				"value": "asian"
+			},
+			{
+				"value": "ukrainian"
+			},
+			{
+				"value": "italian"
+			}
+		]
+	},
+	{
+		"name": "Tamero",
+		"address": {
+			"lat": 49.2327626,
+			"lng": 28.4631211
+		},
+		"time": {
+			"open": 11,
+			"close": 24,
+		},
+		"kitchen": [
+			{
+				"value": "mexican"
+			},
+			{
+				"value": "italian"
+			}
+		]
+	},
+	{
+		"name": "Vinnitsia",
+		"address": {
+			"lat": 49.226131,
+			"lng": 28.4390515
+		},
+		"time": {
+			"open": 08,
+			"close": 23,
+		},
+		"kitchen": [
+			{
+				"value": "ukrainian"
+			},
+			{
+				"value": "italian"
+			}
+		]
+	},
+	{
+		"name": "Sushi Bar",
+		"address": {
+			"lat": 49.228303,
+			"lng": 28.4012716
+		},
+		"time": {
+			"open": 09,
+			"close": 23,
+		},
+		"kitchen": [
+			{
+				"value": "asian"
+			}
+		]
+	},
+]
