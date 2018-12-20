@@ -1,5 +1,5 @@
 ## Getting Started
-0. Install and run ElasticServer to your machine.
+0. Install and run ElasticServer on your machine.
 The most simple guide here 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
 
@@ -18,7 +18,7 @@ if you used link from step 1, your endpoint look like this
 6. Go to Postman or other request manager ( I prefer Isomnia )
 7. Send request to `POST http://localhost/search`
 Expected response
-```
+```json
 {
   "took": 2,
   "timed_out": false,
@@ -40,9 +40,9 @@ Expected response
 8. Now you can send ANY search request in body;
 ## EXAMPLES:
 ### SEARCH
-##### SEARCH by title
+#### SEARCH by title
 Using field `_source` return only defined attributes
-```$xslt
+```json
 {
 	"query":{
 		"match": {
@@ -52,11 +52,10 @@ Using field `_source` return only defined attributes
 	"_source": [ "title" ]
 }
 ```
-
 #### SEARCH by not match query
 Using `*` as mask 
 read more: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_wildcards
-```$xslt
+```json
 {
 	"query":{
 		"query_string": {
@@ -68,7 +67,7 @@ read more: https://www.elastic.co/guide/en/elasticsearch/reference/current/query
 }
 ```
 ###### not match query in multiple fields
-```$xslt
+```json
 {
 	"query":{
 		"query_string": {
@@ -80,7 +79,7 @@ read more: https://www.elastic.co/guide/en/elasticsearch/reference/current/query
 }
 ```
 ###### search with condition
-```$xslt
+```json
 {
 	"query":{
 		"query_string": {
@@ -106,7 +105,7 @@ links:
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-nested-query.html
 - https://github.com/elastic/elasticsearch-net/issues/1688
 ##### one filed
-```$xslt
+```json
 {
 	"query":{
 		"bool": {
@@ -177,5 +176,134 @@ _if you use similar field (ex. kitchen.value), you need to duplicate your nested
 }
 ```
 _not similar fields_
+```
+{
+	"query":{
+		"bool": {
+			"must": [
+				{
+					"nested": {
+						"path": "time",
+						"query": {
+							"bool": {
+								"must": [
+									{
+										"match": {
+											"time.open": "10:00"
+										}
+									},
+									{
+										"match": {
+											"time.close": "6:00"
+										}
+									}
+								]
+							}
+						}
+					}
+				}
+			]
+		}
+	}
+```
+#### Range Search
+More here
+https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-range-query.html
+```json
+{
+	"query":{
+		"bool": {
+			"must": [
+				{
+					"nested": {
+						"path": "time",
+						"query": {
+							"bool": {
+								"must": [
+									{
+										"range": {
+											"time.open": {
+												"lte": "now",
+												"format": "HH:mm"
+											}
+										}
+									},
+									{
+										"range": {
+											"time.close": {
+												"lte": "now+1h",
+												"format": "HH:mm"
+											}
+										}
+									}
+								]
+							}
+						}
+					}
+				}
+			]
+		}
+	}
+}
+```
+As you can see we used some specific queries as `now` and `now+1h`.
+ElasticSearch understand this syntax very well.
+### Geolocation search
+More info here
+https://www.elastic.co/guide/en/elasticsearch/reference/current/geo-queries.html
+
+Search cafe near me
+```json
+{
+    "query": {
+        "bool" : {
+            "must" : {
+                "match_all" : {}
+            },
+            "filter" : {
+                "geo_distance" : {
+                    "distance" : "0.2km",
+                    "address" : {
+                        "lat" : 49.234231,
+                        "lon" : 28.4577084
+                    }
+                }
+            }
+        }
+    }
+}
+```
+Search cafe in my district
+
+Service for Draw on Google Map
+https://www.gmapgis.com/
+```json
+{
+    "query": {
+        "bool" : {
+            "must" : {
+                "match_all" : {}
+            },
+            "filter" : {
+                "geo_polygon" : {
+                    "address" : {
+                        "points" : [
+                            {"lat" : 49.23448, "lon" : 28.43263},
+                            {"lat" : 49.22557, "lon" : 28.43388},
+                            {"lat" : 49.22652, "lon" : 28.44777},
+                            {"lat" : 49.23349, "lon" : 28.44698},
+                            {"lat" : 49.23453, "lon" : 28.43865},
+                            {"lat" : 49.23448, "lon" : 28.43263}
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+
+
 
 
