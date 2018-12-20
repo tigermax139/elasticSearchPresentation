@@ -215,26 +215,26 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-range-
 		"bool": {
 			"must": [
 				{
-					"nested": {
-						"path": "time",
+				"nested": {
+                    "path": "time",
 						"query": {
 							"bool": {
 								"must": [
 									{
-										"range": {
-											"time.open": {
-												"lte": "now",
-												"format": "HH:mm"
-											}
-										}
+                                    "range": {
+                                        "time.open": {
+                                            "lte": "now",
+                                            "format": "HH:mm"
+                                        }
+                                    }
 									},
 									{
-										"range": {
-											"time.close": {
-												"lte": "now+1h",
-												"format": "HH:mm"
-											}
-										}
+                                    "range": {
+                                        "time.close": {
+                                            "lte": "now+1h",
+                                            "format": "HH:mm"
+                                        }
+                                    }
 									}
 								]
 							}
@@ -248,7 +248,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-range-
 ```
 As you can see we used some specific queries as `now` and `now+1h`.
 ElasticSearch understand this syntax very well.
-### Geolocation search
+#### Geolocation search
 More info here
 https://www.elastic.co/guide/en/elasticsearch/reference/current/geo-queries.html
 
