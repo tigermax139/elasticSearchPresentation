@@ -32,7 +32,7 @@ Expected response
     "total": 5,
     "max_score": 1,
     "hits": [
-        // a lot of data
+        {}
     ]
   }
 }
